@@ -37,6 +37,12 @@ class Comment(models.Model):
     text = models.TextField()
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True)
+    
+    def __str__(self) -> str:
+        return self.text[:15]
+
+    class Meta:
+        ordering = ['-created']
 
 
 class Follow(models.Model):
